@@ -1,0 +1,13 @@
+name = "STLDecomposition"
+uuid = "3463f4e6-5c23-45f0-ad9a-7850d654c7dd"
+authors = ["William Beng"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
