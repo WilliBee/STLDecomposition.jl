@@ -2,7 +2,7 @@ module STLDecomposition
 
 using stldecomposition_jll
 
-export call_stl, call_stlez
+export call_stl, call_stlez, stl
 
 # Define the Julia function to call the Fortran subroutine
 function call_stl(
@@ -43,6 +43,11 @@ function call_stlez(y::Vector{Float64}, n::Int, np::Int, ns::Int,isdeg::Int, itd
     )::Cvoid
 
     return season, trend
+end
+
+# Default values similar to the R implementation
+function stl(y::Vector{Float64}, np::Int; robust::Bool=false, ns::Int=10*length(y)+1, isdeg::Int=0, itdeg::Int=1)
+    return call_stlez(y, length(y), np, ns, isdeg, itdeg, robust)
 end
 
 end
